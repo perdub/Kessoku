@@ -1,0 +1,32 @@
+name: Publish NuGet
+
+on:
+  push:
+    branches: [ main, dev ]
+  workflow_dispatch:
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Обязательно fetch-depth: 0, иначе NBGV не сможет посчитать коммиты
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: | 
+            8.0.x
+            9.0.x
+            10.0.x
+
+      # 2. Просто собираем пакеты. Версии проставятся САМИ.
+      - name: Pack
+        run: dotnet pack -c Release --output nupkgs
+
+      # 3. Пушим всё, что насобирали
+      - name: Push to NuGet
+        run: dotnet nuget push "nupkgs/*.nupkg" -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate

@@ -3,6 +3,12 @@
     <Authors>perdub</Authors>
     <PackageProjectUrl>https://github.com/perdub/Kessoku</PackageProjectUrl>
     <RepositoryUrl>https://github.com/perdub/Kessoku</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+    
     <!-- ����� �������� � ���� ���������� ��������� -->
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
