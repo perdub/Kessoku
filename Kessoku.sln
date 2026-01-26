@@ -1,13 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.3.11218.70 d18.3
+VisualStudioVersion = 18.3.11218.70
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kessoku.Serialization", "src\serialization\Kessoku.Serialization\Kessoku.Serialization.csproj", "{E8BA4C08-6780-4C98-8DE1-60E8D1405495}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "serialization", "serialization", "{746F4A49-F743-448C-87E8-AF3E67BFED6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kessoku.Serialization.SourceGenerator", "src\serialization\Kessoku.Serialization.SourceGenerator\Kessoku.Serialization.SourceGenerator.csproj", "{203CC08D-3C17-4F6D-9D52-7C197D7DA166}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "network", "network", "{6E4A4A7B-9CFE-47BC-94DD-987DD1A5A0D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kessoku.Network", "src\network\Kessoku.Network\Kessoku.Network.csproj", "{C9A064FA-93DD-495B-B4B4-9AD1DE252779}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4249FC0B-51EE-4635-8FE6-DFBFC9B90203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{2A879AA5-FBA7-4B14-BCAF-2324B60E079A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kessoku", "src\meta\Kessoku\Kessoku.csproj", "{063658DD-987D-4F95-96B2-62F0024D0C14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,13 +33,26 @@ Global
 		{203CC08D-3C17-4F6D-9D52-7C197D7DA166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{203CC08D-3C17-4F6D-9D52-7C197D7DA166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{203CC08D-3C17-4F6D-9D52-7C197D7DA166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A064FA-93DD-495B-B4B4-9AD1DE252779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A064FA-93DD-495B-B4B4-9AD1DE252779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A064FA-93DD-495B-B4B4-9AD1DE252779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A064FA-93DD-495B-B4B4-9AD1DE252779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063658DD-987D-4F95-96B2-62F0024D0C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063658DD-987D-4F95-96B2-62F0024D0C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063658DD-987D-4F95-96B2-62F0024D0C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063658DD-987D-4F95-96B2-62F0024D0C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E8BA4C08-6780-4C98-8DE1-60E8D1405495} = {746F4A49-F743-448C-87E8-AF3E67BFED6C}
+		{746F4A49-F743-448C-87E8-AF3E67BFED6C} = {4249FC0B-51EE-4635-8FE6-DFBFC9B90203}
 		{203CC08D-3C17-4F6D-9D52-7C197D7DA166} = {746F4A49-F743-448C-87E8-AF3E67BFED6C}
+		{6E4A4A7B-9CFE-47BC-94DD-987DD1A5A0D2} = {4249FC0B-51EE-4635-8FE6-DFBFC9B90203}
+		{C9A064FA-93DD-495B-B4B4-9AD1DE252779} = {6E4A4A7B-9CFE-47BC-94DD-987DD1A5A0D2}
+		{2A879AA5-FBA7-4B14-BCAF-2324B60E079A} = {4249FC0B-51EE-4635-8FE6-DFBFC9B90203}
+		{063658DD-987D-4F95-96B2-62F0024D0C14} = {2A879AA5-FBA7-4B14-BCAF-2324B60E079A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE844FA2-1B2E-453E-8231-F18EDC3ACCF5}
