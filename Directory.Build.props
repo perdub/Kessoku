@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <Authors>perdub</Authors>
+    <PackageProjectUrl>https://github.com/perdub/Kessoku</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/perdub/Kessoku</RepositoryUrl>
+    <!-- ����� �������� � ���� ���������� ��������� -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Condition="!Exists('packages.config')">
+      <PrivateAssets>all</PrivateAssets>
+      <Version>3.9.50</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>
