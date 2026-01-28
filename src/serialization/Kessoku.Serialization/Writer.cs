@@ -1,65 +1,21 @@
 ﻿using Kessoku.Serialization.Types;
 using System;
+using System.Buffers;
+using System.Buffers.Binary;
 using System.IO;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Kessoku.Serialization
 {
     public static class Writer
     {
-        public static void Write(this BinaryWriter binaryWriter, int value)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void Write<TType>(this TType binaryWriter, ref int value) where TType : IBufferWriter<byte>
         {
-            binaryWriter.Write(value);
-        }
-#if NET8_0_OR_GREATER
-        public static unsafe void Write(this BinaryWriter binaryWriter, UInt128 value)
-        {
-            var ptr = &value;
-            binaryWriter.Write(new ReadOnlySpan<byte>(
-                (void*)ptr, 16
-                ));
-        }
-        public static unsafe void Write(this BinaryWriter binaryWriter, Int128 value)
-        {
-            var ptr = &value;
-            binaryWriter.Write(new ReadOnlySpan<byte>(
-                (void*)ptr, 16
-            ));
-        }
-#endif
-        /*  public static void Write(this BinaryWriter binaryWriter, ISerialization value)
-          {
-              value.Serialize(binaryWriter);
-          }*/
-
-        public static void Write(this BinaryWriter binaryWriter, Guid guid)
-        {
-            if (binaryWriter is KessokuBinaryWriter aeeBinaryWriter)
-            {
-                aeeBinaryWriter.Write(guid);
-            }
-            else
-            {
-                binaryWriter.Write(guid.ToByteArray());
-            }
-        }
-
-        public static void Write(this BinaryWriter binaryWriter, uint value)
-        {
-            binaryWriter.Write(value);
-        }
-
-        public static void Write<T>(this BinaryWriter binaryWriter, T value) where T : ISerialization
-        {
-            value.Serialize(binaryWriter);
-        }
-
-        public static void Write<T>(this BinaryWriter binaryWriter, T[] value) where T : ISerialization
-        {
-            binaryWriter.Write(value.Length);
-            foreach (var val in value)
-            {
-                val.Serialize(binaryWriter);
-            }
+            var span = binaryWriter.GetSpan(4);
+            BinaryPrimitives.WriteInt32LittleEndian(span, value);
+            binaryWriter.Advance(4);
         }
     }
 }
