@@ -11,6 +11,12 @@ namespace Kessoku.Serialization.Types
     /// </summary>
     public interface ISerialization
     {
-        void Serialize<TBufferWriter>(TBufferWriter binaryWriter) where TBufferWriter : IBufferWriter<byte>;       
+        void Serialize<TBufferWriter>(TBufferWriter binaryWriter) where TBufferWriter : IBufferWriter<byte>;
+
+        /// <summary>
+        /// Get size, which we need to store object
+        /// </summary>
+        /// <returns></returns>
+        uint GetSize();
     }
 }
