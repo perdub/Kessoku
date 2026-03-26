@@ -22,6 +22,11 @@ namespace Kessoku.Serialization.Types
         /// <param name="binaryWriter"></param>
         public abstract void Serialize<TBufferWriter>(TBufferWriter binaryWriter) where TBufferWriter : IBufferWriter<byte>;
 
+        public virtual uint GetSize()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Message id.
         /// </summary>

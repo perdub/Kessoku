@@ -61,20 +61,17 @@ namespace Kessoku.Serialization.Helpers
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void AddField<T>(IEnumerator<T>? collection)
+        public void AddField<T>(IEnumerable<T>? collection)
         {
-            if(collection is not null)
-            {
-                while (collection.MoveNext())
-                {
-                    AddField(collection.Current);
-                }
-            }
-
-            //space for array header
             Size += 4;
 
+            if (collection == null)
+                return;
+
+            foreach (var item in collection)
+                AddField(item);
         }
+
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void AddField<T>(ISerialization value)
