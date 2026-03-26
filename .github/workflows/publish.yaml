@@ -23,6 +23,9 @@ jobs:
             9.0.x
             10.0.x
 
+      - name: Tests
+        run: dotnet test
+
       # 2. Просто собираем пакеты. Версии проставятся САМИ.
       - name: Pack
         run: dotnet pack -c Release --output nupkgs
