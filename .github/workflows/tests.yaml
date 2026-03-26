@@ -1,0 +1,35 @@
+name: Run tests
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        framework: [net6.0, net8.0, net10.0, net11.0, net48, netcoreapp3.1]
+        exclude:
+            - os: ubuntu-latest
+              framework: net48
+        
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:  
+          dotnet-quality: 'preview'
+          dotnet-version: |
+            3.1.x
+            6.0.x
+            8.0.x
+            9.0.x
+            10.0.x
+            11.0.x
+
+      - name: Test
+        run: dotnet test --framework ${{ matrix.framework }}
